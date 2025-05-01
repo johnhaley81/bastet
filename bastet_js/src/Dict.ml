@@ -46,7 +46,7 @@ module type TRAVERSABLE_F = functor (A : APPLICATIVE) ->
 module Functor : FUNCTOR with type 'a t = 'a Js.Dict.t = struct
   type 'a t = 'a Js.Dict.t
 
-  let map f a = Js.Dict.map (fun [@bs] x -> f x) a
+  let map f a = Js.Dict.map (fun [@u] x -> f x) a
 end
 
 module Apply : APPLY with type 'a t = 'a Js.Dict.t = struct

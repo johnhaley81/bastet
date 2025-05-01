@@ -22,7 +22,7 @@ end
 describe "Promise" (fun () ->
     let promise a =
       Js.Promise.make (fun ~resolve ~reject:_ ->
-          Js.Global.setTimeout (fun () -> (resolve a [@bs])) 10 |> ignore)
+          Js.Global.setTimeout (fun () -> (resolve a [@u])) 10 |> ignore)
     in
     describe "Functor" (fun () ->
         let module V = Verify.Compare.Functor (Promise.Functor) (ComparePromise) in
