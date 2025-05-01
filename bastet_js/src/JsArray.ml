@@ -9,21 +9,21 @@ module A = ArrayF.Make (struct
   let make n value =
     let arr = [||] in
     for _ = 1 to n do
-      Js.Array.push value arr |> ignore
+      Js.Array.push ~value arr |> ignore
     done;
     arr
 
-  let append = Belt.Array.concat
+  let append a other = Js.Array.concat ~other a
 
-  let map = Js.Array.map
+  let map f = Js.Array.map ~f
 
-  let mapi = Js.Array.mapi
+  let mapi f = Js.Array.mapi ~f
 
-  let fold_left = Js.Array.reduce
+  let fold_left f init = Js.Array.reduce ~f ~init
 
-  let every = Js.Array.every
+  let every f = Js.Array.every ~f
 
-  let slice = Js.Array.slice
+  let slice ~start ~end_ = Js.Array.slice ~start ~end_
 end)
 
 include A
