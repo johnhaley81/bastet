@@ -14,19 +14,7 @@ See [documentation][1]
 
 ## Installation
 
-### JavaScript/Melange
-
-For JavaScript compilation via Melange, install using opam:
-
-```
-opam install bastet
-```
-
-The project will be available under the `Bastet` namespace
-
-### Native
-
-Install the project:
+Install using opam:
 
 ```
 opam install bastet
