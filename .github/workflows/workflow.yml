@@ -12,7 +12,7 @@ jobs:
       fail-fast: false
       matrix:
         os:
-          - ubuntu-latest
+          - ubuntu-22.04
           - macos-latest
         ocaml-version:
           - 5.3.x
@@ -23,11 +23,18 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Install system dependencies (Ubuntu)
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y bubblewrap g++-multilib gcc-multilib mercurial musl-tools rsync
+
       - name: Set up OCaml ${{ matrix.ocaml-version }}
         uses: ocaml/setup-ocaml@v2
         with:
           ocaml-compiler: ${{ matrix.ocaml-version }}
           dune-cache: true
+          opam-disable-sandboxing: true
 
       - name: Install dependencies
         run: |
