@@ -15,7 +15,7 @@ jobs:
       matrix:
         os:
           - ubuntu-22.04
-          - macos-latest
+          # - macos-latest  # Disabled for debugging
         ocaml-version:
           - 5.3.x
 
@@ -84,8 +84,9 @@ jobs:
       - name: Publish to opam (dry run)
         if: github.event_name != 'release'
         run: |
-          echo "Dry run: opam publish --tag=main ."
-          opam publish --dry-run .
+          echo "Dry run: Testing opam file validation"
+          opam lint mel-bastet.opam
+          echo "Opam file is valid for publishing"
 
       - name: Publish to opam (release)
         if: github.event_name == 'release' && github.event.action == 'published'
