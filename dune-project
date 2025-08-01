@@ -16,7 +16,7 @@
  (tags
   ("category theory" "abstract algebra" "algebra" "cats"))
  (depends
-  (ocaml (>= 4.08))
+  (ocaml (>= 4.14))
   (alcotest (and (>= 1.0.1) :with-test))
   (qcheck (and (and (>= 0.13) (< 0.18)) :with-test))
   (qcheck-alcotest (and (and (>= 0.13) (< 0.18)) :with-test))

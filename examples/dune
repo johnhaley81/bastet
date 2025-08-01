@@ -3,6 +3,6 @@
   (libraries mustache))
 
 ; (mdx
-;  (package bastet)
+;  (package mel-bastet)
 ;  (libraries bastet)
 ;  (preludes prelude.ml))
