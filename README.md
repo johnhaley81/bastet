@@ -1,11 +1,10 @@
-![Bastet](https://raw.githubusercontent.com/johnhaley81/bastet/main/bastet.jpg)
+![Mel-Bastet](https://raw.githubusercontent.com/johnhaley81/mel-bastet/main/bastet.jpg)
 
-[![opam](https://img.shields.io/badge/opam-bastet-blue)](https://opam.ocaml.org/packages/bastet/)
-[![Build Status](https://img.shields.io/github/workflow/status/johnhaley81/bastet/Main%20workflow)](https://github.com/johnhaley81/bastet/actions/workflows/workflow.yml)
-[![Coverage Status](https://coveralls.io/repos/github/johnhaley81/bastet/badge.svg)](https://coveralls.io/github/johnhaley81/bastet)
-[![Release](https://img.shields.io/github/v/tag/johnhaley81/bastet)](https://github.com/johnhaley81/bastet/releases)
+[![opam](https://img.shields.io/badge/opam-mel--bastet-blue)](https://opam.ocaml.org/packages/mel-bastet/)
 
-A ReasonML/OCaml library for category theory and abstract algebra.
+# Mel-Bastet
+
+A Melange-focused fork of [Bastet](https://github.com/Risto-Stevcev/bastet) - an OCaml library for category theory and abstract algebra, optimized for JavaScript compilation via Melange.
 
 ## Documentation
 
@@ -17,7 +16,7 @@ See [documentation][1]
 Install using opam:
 
 ```
-opam install bastet
+opam install mel-bastet
 ```
 
 
@@ -130,5 +129,5 @@ val result : game = {score = 6; disqualified = true}
 See [LICENSE][2]
 
 
-[1]: https://johnhaley81.github.io/bastet
-[2]: https://github.com/johnhaley81/bastet/blob/master/LICENSE
+[1]: https://johnhaley81.github.io/mel-bastet
+[2]: https://github.com/johnhaley81/mel-bastet/blob/master/LICENSE

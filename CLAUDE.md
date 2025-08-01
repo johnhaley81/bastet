@@ -2,6 +2,8 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+**Mel-Bastet** is a Melange-focused fork of [Bastet](https://github.com/Risto-Stevcev/bastet), optimized for JavaScript compilation.
+
 ## Commands
 
 ### Build Commands
@@ -36,7 +38,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Architecture
 
 ### Project Structure
-This is a dual-target OCaml library for category theory and abstract algebra:
+Mel-Bastet is a Melange-focused fork of the original Bastet library, specializing in category theory and abstract algebra with optimized JavaScript compilation:
 
 **Core Library (`bastet/`):**
 - Native OCaml implementation using dune
@@ -67,11 +69,13 @@ This is a dual-target OCaml library for category theory and abstract algebra:
 
 ## Development Notes
 
-### Dual Target Support
-The project supports both native OCaml and JavaScript compilation. When making changes:
-- Core logic goes in `bastet/` (native)
-- JavaScript-specific extensions go in `bastet_js/`
-- Test both targets when modifying shared code
+### Fork Information
+This is a fork of the original Bastet library, focused on Melange for JavaScript compilation:
+- Maintains the original Bastet API and structure
+- Optimized for JavaScript compilation via Melange
+- Removes BuckleScript legacy code and dependencies
+- Core logic remains in `bastet/` (native)
+- JavaScript-specific extensions in `bastet_js/`
 
 ### Mathematical Laws
 All type class implementations must satisfy their mathematical laws. Use the `Verify` module and property-based testing when adding new instances.

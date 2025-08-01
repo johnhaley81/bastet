@@ -1,6 +1,6 @@
 (lang dune 3.8)
-(name bastet)
-(source (github johnhaley81/bastet))
+(name mel-bastet)
+(source (github johnhaley81/mel-bastet))
 (license BSD-3-Clause)
 (authors "John Haley")
 (maintainers "john@haley.io")
@@ -10,9 +10,9 @@
 (using mdx 0.3)
 
 (package
- (name bastet)
- (synopsis "An OCaml library for category theory and abstract algebra")
- (documentation "https://johnhaley81.github.io/bastet")
+ (name mel-bastet)
+ (synopsis "A Melange-focused fork of Bastet for category theory and abstract algebra")
+ (documentation "https://johnhaley81.github.io/mel-bastet")
  (tags
   ("category theory" "abstract algebra" "algebra" "cats"))
  (depends
