@@ -1,6 +1,5 @@
-; Temporarily disabled due to QCheck API compatibility issues
-; (tests
-;  (names test_bastet)
-;  (package mel-bastet)
-;  (libraries alcotest qcheck qcheck-core qcheck-alcotest fmt bastet)
-;  (action (run %{test})))
+(tests
+ (names test_bastet)
+ (package mel-bastet)
+ (libraries alcotest qcheck qcheck-core qcheck-alcotest fmt bastet)
+ (action (run %{test})))

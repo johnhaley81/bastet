@@ -5,7 +5,7 @@ struct
 
   type 'a arbitrary = 'a QCheck.arbitrary
 
-  let make = QCheck.option
+  let make arb = QCheck.option arb
 
   let make_bound value = QCheck.option value
 end
