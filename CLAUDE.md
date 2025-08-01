@@ -16,10 +16,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `make watch-test` - Watch mode for continuous testing
 - `opam exec -- dune runtest --no-buffer -w` - Direct dune watch test
 
-### JavaScript/BuckleScript (Legacy)
-- `npm run build` - Build JavaScript version using BuckleScript
-- `npm run test` - Run JavaScript tests with Mocha
-- `npm run watch-test` - Watch JavaScript tests
+### JavaScript/Melange
+- `dune build` - Build including JavaScript target via Melange
+- `dune runtest` - Run all tests including JavaScript tests
 
 ### Code Formatting
 - `make fmt` - Format code using ocamlformat
@@ -46,10 +45,9 @@ This is a dual-target OCaml library for category theory and abstract algebra:
 - Pre-instantiated functors in `Functors.ml`
 
 **JavaScript Target (`bastet_js/`):**
-- Uses Melange (successor to BuckleScript) for JavaScript compilation
+- Uses Melange for JavaScript compilation
 - Extends core library with JavaScript-specific implementations
 - Includes `JsArray`, `JsFloat`, `Promise`, etc.
-- Legacy BuckleScript config still present (`bsconfig.json`, `package.json`)
 
 ### Key Modules
 - `Interface.ml` - Defines all type class interfaces (FUNCTOR, MONAD, SEMIGROUP, etc.)
@@ -58,9 +56,8 @@ This is a dual-target OCaml library for category theory and abstract algebra:
 - `Verify.ml` - Property-based test utilities for mathematical laws
 
 ### Build System
-- Primary: dune + opam (native OCaml)
-- Secondary: npm + Melange (JavaScript target)
-- Makefile provides convenient commands wrapping both systems
+- dune + opam for both native OCaml and JavaScript (via Melange) targets
+- Makefile provides convenient commands wrapping dune/opam
 
 ### Testing
 - Native tests use Alcotest and QCheck

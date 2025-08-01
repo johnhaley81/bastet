@@ -4,7 +4,7 @@ open Interface
 let ( <. ) = Function.Infix.( <. )
 
 (** Note: Promises are not actually Monads because you can't have `'a Js.Promise.t Js.Promise.t`
-    Even though it's a valid bucklescript signature. Promises auto-flatten in this case.
+    Even though it's a valid Melange signature. Promises auto-flatten in this case.
     See the unit tests. *)
 
 module Functor : FUNCTOR with type 'a t = 'a Js.Promise.t = struct

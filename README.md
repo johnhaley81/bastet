@@ -1,6 +1,6 @@
-![Bastet](https://raw.githubusercontent.com/johnhaley81/bs-abstract/native-compat/bastet.jpg)
+![Bastet](https://raw.githubusercontent.com/johnhaley81/bastet/main/bastet.jpg)
 
-[![npm](https://img.shields.io/npm/v/bs-bastet.svg)](https://npmjs.org/bs-bastet)
+[![opam](https://img.shields.io/badge/opam-bastet-blue)](https://opam.ocaml.org/packages/bastet/)
 [![Build Status](https://img.shields.io/github/workflow/status/johnhaley81/bastet/Main%20workflow)](https://github.com/johnhaley81/bastet/actions/workflows/workflow.yml)
 [![Coverage Status](https://coveralls.io/repos/github/johnhaley81/bastet/badge.svg)](https://coveralls.io/github/johnhaley81/bastet)
 [![Release](https://img.shields.io/github/v/tag/johnhaley81/bastet)](https://github.com/johnhaley81/bastet/releases)
@@ -14,20 +14,12 @@ See [documentation][1]
 
 ## Installation
 
-### Bucklescript/ReasonML
+### JavaScript/Melange
 
-Install the project:
+For JavaScript compilation via Melange, install using opam:
 
 ```
-yarn install bs-bastet --save
-```
-
-And add the dependency to your bs-dependencies in `bsconfig.json`:
-
-```json
-"bs-dependencies": [
-  "bs-bastet"
-]
+opam install bastet
 ```
 
 The project will be available under the `Bastet` namespace

@@ -355,7 +355,7 @@ This example shows how you can use monads to flatten callbacks without having to
 
 As you can see, monads are very useful for [IO]. Haskell and Purescript more or less uses some
 variation of this to achieve pure FP with their [IO] constructs. Lazy semantics are simulated with
-functions in Bucklescript and Purescript, and what Purescript does is it keeps the side-effects in a
+functions in Melange and Purescript, and what Purescript does is it keeps the side-effects in a
 function, threads these functions together using [flat_map] without evaluating it yet by wrapping
 the computation in a function, and then the runtime (calling [main]) or [unsafePerformIO] will run
 the side-effects by calling the function. This makes the language "pure" because only the runtime or
@@ -476,7 +476,7 @@ that provides {e do notation} sugar for {!Bastet.Interface.MONAD}s. The rewriter
 - : int option = Some 579
 ]}
 
-For bucklescript there is the {{:https://github.com/reasonml-labs/bs-let}bs-let} library.
+For Melange, you can use the ppx_let syntax directly.
 
 
 {2 Background}

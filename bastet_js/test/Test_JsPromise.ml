@@ -8,7 +8,7 @@ let ( <. ) =
 
 (** Note: Promises are not actually Monads because you can't have
     Js.Promise.t(Js.Promise.t('a))
-    Even though it's a valid bucklescript signature *)
+    Even though it's a valid Melange signature *)
 
 module ComparePromise = struct
   type 'a t = 'a Js.Promise.t
