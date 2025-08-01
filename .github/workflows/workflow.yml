@@ -1,82 +1,43 @@
-name: Main workflow
+name: CI
 
 on:
   push:
-    branches: ['master']
+    branches: ['main']
+  pull_request:
+    branches: ['main']
 
 jobs:
-  build:
+  test:
     strategy:
       fail-fast: false
       matrix:
         os:
+          - ubuntu-latest
           - macos-latest
-          - ubuntu-latest
-          - windows-latest
         ocaml-version:
-          - 4.11.0
-          - 4.10.1
-          - 4.09.1
-          - 4.08.1
+          - 4.14.x
+          - 5.0.x
+          - 5.1.x
 
     runs-on: ${{ matrix.os }}
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
-      - name: Use OCaml ${{ matrix.ocaml-version }}
-        uses: avsm/setup-ocaml@v1
+      - name: Set up OCaml ${{ matrix.ocaml-version }}
+        uses: ocaml/setup-ocaml@v2
         with:
-          ocaml-version: ${{ matrix.ocaml-version }}
+          ocaml-compiler: ${{ matrix.ocaml-version }}
+          dune-cache: true
 
-      - name: Install Bastet
+      - name: Install dependencies
         run: |
-          opam pin add bastet.dev . --no-action
-          opam depext bastet --yes --with-doc --with-test
-          opam install . --deps-only --with-doc --with-test
+          opam pin add mel-bastet.dev . --no-action
+          opam install . --deps-only --with-test
 
-  coverage:
-    needs: build
-    strategy:
-      fail-fast: false
-      matrix:
-        os:
-          - ubuntu-latest
-        ocaml-version:
-          - 4.11.0
+      - name: Build
+        run: opam exec -- dune build @all
 
-    runs-on: ${{ matrix.os }}
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Use OCaml ${{ matrix.ocaml-version }}
-        uses: avsm/setup-ocaml@v1
-        with:
-          ocaml-version: ${{ matrix.ocaml-version }}
-
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '12'
-
-      - name: Install Yarn
-        run: npm install -g yarn
-
-      - name: Install NPM dependencies
-        run: yarn
-
-      - name: Install Bastet
-        run: |
-          opam pin add bastet.dev . --no-action
-          opam depext bastet --yes --with-doc --with-test
-          opam install . --deps-only --with-doc --with-test
-
-      - name: Create and deploy code coverage
-        run: |
-          make bisect
-          make coveralls
-        env:
-          COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PULL_REQUEST_NUMBER: ${{ github.event.number }}
+      - name: Run tests
+        run: opam exec -- dune runtest
