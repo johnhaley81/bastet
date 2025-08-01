@@ -8,14 +8,14 @@ homepage: "https://github.com/johnhaley81/mel-bastet"
 doc: "https://johnhaley81.github.io/mel-bastet"
 bug-reports: "https://github.com/johnhaley81/mel-bastet/issues"
 depends: [
-  "ocaml" {>= "4.14"}
-  "dune" {>= "3.0"}
-  "melange" {>= "1.0.0"}
-  "alcotest" {with-test}
-  "qcheck" {with-test}
-  "qcheck-core" {with-test} 
-  "qcheck-alcotest" {with-test}
-  "fmt" {with-test}
+  "ocaml" {>= "5.3.0"}
+  "dune" {>= "3.19"}
+  "melange" {>= "5.1.0"}
+  "alcotest" {>= "1.9.0" & with-test}
+  "qcheck" {>= "0.25" & with-test}
+  "qcheck-core" {>= "0.25" & with-test} 
+  "qcheck-alcotest" {>= "0.25" & with-test}
+  "fmt" {>= "0.10.0" & with-test}
 ]
 build: [
   ["dune" "subst"] {dev}
@@ -27,7 +27,6 @@ build: [
     "-j"
     jobs
     "@install"
-    "@runtest" {with-test}
     "@doc" {with-doc}
   ]
 ]

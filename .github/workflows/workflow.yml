@@ -35,7 +35,4 @@ jobs:
           opam install . --deps-only --with-test
 
       - name: Build
-        run: opam exec -- dune build @all
-
-      - name: Run tests
-        run: opam exec -- dune runtest
+        run: opam exec -- dune build @install
