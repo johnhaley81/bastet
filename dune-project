@@ -23,4 +23,5 @@
   (mdx (and (>= 1.6.0) :with-test))
   (odoc (and (>= 1.5.0) :with-doc))
   (mustache (and (>= 3.1.0) :with-doc))
-  (dune (>= 2.0.1))))
+  (dune (>= 3.0))
+  (melange (>= 1.0.0))))
