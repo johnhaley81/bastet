@@ -1,9 +1,9 @@
 (lang dune 3.8)
 (name bastet)
-(source (github Risto-Stevcev/bastet))
+(source (github johnhaley81/bastet))
 (license BSD-3-Clause)
-(authors "Risto Stevcev")
-(maintainers "me@risto.codes")
+(authors "John Haley")
+(maintainers "john@haley.io")
 (generate_opam_files false) ;disable while pinning melange deps
 (implicit_transitive_deps false)
 (using melange 0.1)
@@ -12,7 +12,7 @@
 (package
  (name bastet)
  (synopsis "An OCaml library for category theory and abstract algebra")
- (documentation "https://risto-stevcev.github.io/bastet")
+ (documentation "https://johnhaley81.github.io/bastet")
  (tags
   ("category theory" "abstract algebra" "algebra" "cats"))
  (depends

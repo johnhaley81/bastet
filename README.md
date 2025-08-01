@@ -1,9 +1,9 @@
-![Bastet](https://raw.githubusercontent.com/Risto-Stevcev/bs-abstract/native-compat/bastet.jpg)
+![Bastet](https://raw.githubusercontent.com/johnhaley81/bs-abstract/native-compat/bastet.jpg)
 
 [![npm](https://img.shields.io/npm/v/bs-bastet.svg)](https://npmjs.org/bs-bastet)
-[![Build Status](https://img.shields.io/github/workflow/status/Risto-Stevcev/bastet/Main%20workflow)](https://github.com/Risto-Stevcev/bastet/actions/workflows/workflow.yml)
-[![Coverage Status](https://coveralls.io/repos/github/Risto-Stevcev/bastet/badge.svg)](https://coveralls.io/github/Risto-Stevcev/bastet)
-[![Release](https://img.shields.io/github/v/tag/Risto-Stevcev/bastet)](https://github.com/Risto-Stevcev/bastet/releases)
+[![Build Status](https://img.shields.io/github/workflow/status/johnhaley81/bastet/Main%20workflow)](https://github.com/johnhaley81/bastet/actions/workflows/workflow.yml)
+[![Coverage Status](https://coveralls.io/repos/github/johnhaley81/bastet/badge.svg)](https://coveralls.io/github/johnhaley81/bastet)
+[![Release](https://img.shields.io/github/v/tag/johnhaley81/bastet)](https://github.com/johnhaley81/bastet/releases)
 
 A ReasonML/OCaml library for category theory and abstract algebra.
 
@@ -150,5 +150,5 @@ val result : game = {score = 6; disqualified = true}
 See [LICENSE][2]
 
 
-[1]: https://risto-stevcev.github.io/bastet
-[2]: https://github.com/Risto-Stevcev/bastet/blob/master/LICENSE
+[1]: https://johnhaley81.github.io/bastet
+[2]: https://github.com/johnhaley81/bastet/blob/master/LICENSE

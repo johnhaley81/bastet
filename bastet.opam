@@ -1,12 +1,12 @@
 opam-version: "2.0"
 synopsis: "An OCaml library for category theory and abstract algebra"
-maintainer: ["me@risto.codes"]
-authors: ["Risto Stevcev"]
+maintainer: ["john@haley.io"]
+authors: ["John Haley"]
 license: "BSD-3-Clause"
 tags: ["category theory" "abstract algebra" "algebra" "cats"]
-homepage: "https://github.com/Risto-Stevcev/bastet"
-doc: "https://risto-stevcev.github.io/bastet"
-bug-reports: "https://github.com/Risto-Stevcev/bastet/issues"
+homepage: "https://github.com/johnhaley81/bastet"
+doc: "https://johnhaley81.github.io/bastet"
+bug-reports: "https://github.com/johnhaley81/bastet/issues"
 depends: [
   "ocaml" {>= "4.08"}
   "alcotest" {>= "1.0.1" & with-test}
@@ -32,4 +32,4 @@ build: [
     "@doc" {with-doc}
   ]
 ]
-dev-repo: "git+https://github.com/Risto-Stevcev/bastet.git"
+dev-repo: "git+https://github.com/johnhaley81/bastet.git"

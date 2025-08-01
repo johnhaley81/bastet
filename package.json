@@ -4,7 +4,7 @@
   "description": "A ReasonML/OCaml library for category theory and abstract algebra",
   "repository": {
     "type": "git",
-    "url": "git://github.com/Risto-Stevcev/bastet.git"
+    "url": "git://github.com/johnhaley81/bastet.git"
   },
   "scripts": {
     "clean": "bsb -clean-world",
@@ -14,13 +14,13 @@
     "test": "mocha lib/js/bastet_js/test/Test_*.js",
     "watch-test": "mocha -w lib/js/bastet_js/test/Test_*.js"
   },
-  "homepage": "https://github.com/Risto-Stevcev/bastet",
-  "bugs": "https://github.com/Risto-Stevcev/bastet/issues",
+  "homepage": "https://github.com/johnhaley81/bastet",
+  "bugs": "https://github.com/johnhaley81/bastet/issues",
   "keywords": [
     "BuckleScript",
     "reason"
   ],
-  "author": "Risto Stevcev",
+  "author": "John Haley",
   "license": "BSD-3-Clause",
   "dependencies": {
     "bisect_ppx": "^2.1.0",
