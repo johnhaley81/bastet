@@ -15,7 +15,7 @@ jobs:
       matrix:
         os:
           - ubuntu-22.04
-          # - macos-latest  # Disabled for debugging
+          - macos-latest
         ocaml-version:
           - 5.3.x
 
