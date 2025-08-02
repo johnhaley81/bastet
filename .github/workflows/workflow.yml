@@ -89,7 +89,7 @@ jobs:
           echo "Opam file is valid for publishing"
 
       - name: Setup GitHub token for opam-publish
-        if: github.event_name == 'release' && github.event.action == 'published' && secrets.OPAM_PUBLISH_TOKEN != ''
+        if: github.event_name == 'release' && github.event.action == 'published' && secrets.OPAM_PUBLISH_TOKEN
         env:
           OPAM_PUBLISH_TOKEN: ${{ secrets.OPAM_PUBLISH_TOKEN }}
         run: |
@@ -97,12 +97,14 @@ jobs:
           echo -n "$OPAM_PUBLISH_TOKEN" > ~/.opam/plugins/opam-publish/github-actions.token
 
       - name: Publish to opam (release)
-        if: github.event_name == 'release' && github.event.action == 'published' && secrets.OPAM_PUBLISH_TOKEN != ''
+        if: github.event_name == 'release' && github.event.action == 'published' && secrets.OPAM_PUBLISH_TOKEN
+        env:
+          OPAM_PUBLISH_TOKEN: ${{ secrets.OPAM_PUBLISH_TOKEN }}
         run: |
           opam publish --no-confirmation --tag=${{ github.ref_name }} .
 
       - name: Manual publishing instructions
-        if: github.event_name == 'release' && github.event.action == 'published' && secrets.OPAM_PUBLISH_TOKEN == ''
+        if: github.event_name == 'release' && github.event.action == 'published' && !secrets.OPAM_PUBLISH_TOKEN
         run: |
           echo "✅ Release v${{ github.ref_name }} is ready for opam publishing!"
           echo ""
