@@ -88,13 +88,27 @@ jobs:
           opam lint mel-bastet.opam
           echo "Opam file is valid for publishing"
 
-      - name: Publish to opam (release) - Manual step required
-        if: github.event_name == 'release' && github.event.action == 'published'
+      - name: Setup GitHub token for opam-publish
+        if: github.event_name == 'release' && github.event.action == 'published' && secrets.OPAM_PUBLISH_TOKEN != ''
+        env:
+          OPAM_PUBLISH_TOKEN: ${{ secrets.OPAM_PUBLISH_TOKEN }}
+        run: |
+          mkdir -p ~/.opam/plugins/opam-publish
+          echo -n "$OPAM_PUBLISH_TOKEN" > ~/.opam/plugins/opam-publish/github-actions.token
+
+      - name: Publish to opam (release)
+        if: github.event_name == 'release' && github.event.action == 'published' && secrets.OPAM_PUBLISH_TOKEN != ''
+        run: |
+          opam publish --no-confirmation --tag=${{ github.ref_name }} .
+
+      - name: Manual publishing instructions
+        if: github.event_name == 'release' && github.event.action == 'published' && secrets.OPAM_PUBLISH_TOKEN == ''
         run: |
           echo "✅ Release v${{ github.ref_name }} is ready for opam publishing!"
           echo ""
-          echo "To publish to opam repository, run the following command manually:"
-          echo "  opam publish --tag=${{ github.ref_name }} ."
+          echo "⚠️  No OPAM_PUBLISH_TOKEN secret found. To enable automated publishing:"
+          echo "1. Create a Personal Access Token with 'public_repo' scope"
+          echo "2. Add it as a repository secret named 'OPAM_PUBLISH_TOKEN'"
           echo ""
-          echo "Note: Automated publishing requires a personal access token with 'public_repo' scope."
-          echo "The default GITHUB_TOKEN doesn't have permissions to create PRs in external repositories."
+          echo "Or publish manually with:"
+          echo "  opam publish --tag=${{ github.ref_name }} ."
