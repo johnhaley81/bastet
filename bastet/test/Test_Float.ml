@@ -11,9 +11,9 @@ end
 module ApproximatelyEq = struct
   type t = float
 
-  let approx = Printf.sprintf "%.4f"
+  let precision = 0.0001
 
-  let eq a b = approx a = approx b
+  let eq a b = abs_float (a -. b) <= precision
 end
 
 module TestFloat =
