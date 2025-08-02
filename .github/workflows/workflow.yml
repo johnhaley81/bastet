@@ -77,11 +77,18 @@ jobs:
         run: opam install opam-publish
 
       - name: Configure git
+        env:
+          OPAM_PUBLISH_TOKEN: ${{ secrets.OPAM_PUBLISH_TOKEN }}
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
           # Configure git to use HTTPS instead of SSH for GitHub
           git config --global url."https://github.com/".insteadOf "git@github.com:"
+          # Configure git credentials for HTTPS authentication
+          if [ -n "$OPAM_PUBLISH_TOKEN" ]; then
+            git config --global credential.helper store
+            echo "https://github-actions:$OPAM_PUBLISH_TOKEN@github.com" > ~/.git-credentials
+          fi
 
       - name: Publish to opam (dry run)
         if: github.event_name != 'release'
