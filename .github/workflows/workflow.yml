@@ -93,4 +93,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          opam publish --tag=${{ github.ref_name }} .
+          opam publish --no-confirmation --tag=${{ github.ref_name }} .
