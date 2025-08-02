@@ -81,6 +81,14 @@ jobs:
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
 
+      - name: Setup GitHub token for opam-publish
+        if: github.event_name == 'release' && github.event.action == 'published'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p ~/.opam/plugins/opam-publish
+          echo -n "$GITHUB_TOKEN" > ~/.opam/plugins/opam-publish/github-actions.token
+
       - name: Publish to opam (dry run)
         if: github.event_name != 'release'
         run: |
@@ -90,7 +98,5 @@ jobs:
 
       - name: Publish to opam (release)
         if: github.event_name == 'release' && github.event.action == 'published'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           opam publish --no-confirmation --tag=${{ github.ref_name }} .
