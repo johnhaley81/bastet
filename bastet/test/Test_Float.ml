@@ -11,7 +11,7 @@ end
 module ApproximatelyEq = struct
   type t = float
 
-  let precision = 0.0001
+  let precision = 0.000001
 
   let eq a b = abs_float (a -. b) <= precision
 end
